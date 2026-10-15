@@ -1,62 +1,48 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LAST CORRIDOR</title>
-  <link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAST CORRIDOR</title>
+    <!-- CSS 스타일 연결 -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="wrap">
-    <canvas id="game" width="960" height="540"></canvas>
-    <div id="hurtFx"></div>
-
-    <div id="hud">
-      <div id="areaInfo">AREA 01 | ENEMIES LEFT: 0</div>
-      <div class="bars">
-        <div class="barBox">
-          <span>HP</span>
-          <div class="bar"><i id="hpFill"></i></div>
+    <div id="wrap">
+        <canvas id="game" width="960" height="540"></canvas>
+        <div id="hurtFx"></div>
+        <div id="hud">
+            <div id="areaInfo">AREA 01 | ENEMIES LEFT: 0</div>
+            <div class="bars">
+                <div class="barBox"><span>HP</span><div class="bar"><i id="hpFill"></i></div></div>
+                <div class="barBox"><span>DODGE</span><div class="bar"><i id="shFill"></i></div></div>
+            </div>
+            <div id="score">SCORE 000000</div>
+            <div id="ammo">AMMO 15 / 15</div>
+            <div id="audioBox">
+                <button id="muteBtn"></button>
+                <input id="vol" type="range" min="0" max="100" value="50">
+            </div>
         </div>
-        <div class="barBox">
-          <span>DODGE</span>
-          <div class="bar"><i id="shFill"></i></div>
+        <div id="msg"></div>
+        <div class="screen" id="startScreen">
+            <h1>LAST <span>CORRIDOR</span></h1>
+            <p>A/D · W/S 또는 방향키: 이동 &nbsp;|&nbsp; 마우스 왼쪽(누르고 있기): 사격<br>R: 재장전 &nbsp;|&nbsp; SHIFT: 구르기(무적) &nbsp;|&nbsp; ESC: 일시정지<br>피격 시 DODGE 게이지가 자동 회피로 소모됩니다. HP는 회복되지 않습니다.</p>
+            <button class="btn" id="startBtn">GAME START</button>
         </div>
-      </div>
-      <div id="score">SCORE 000000</div>
-      <div id="ammo">AMMO 15 / 15</div>
-      <div id="audioBox">
-        <button id="muteBtn">🔊</button>
-        <input id="vol" type="range" min="0" max="100" value="50">
-      </div>
+        <div class="screen hidden" id="pauseScreen">
+            <h1>PAUSED</h1>
+            <button class="btn" id="resumeBtn">RESUME</button>
+            <button class="btn" id="pauseRestartBtn">RESTART</button>
+        </div>
+        <div class="screen hidden" id="overScreen">
+            <h1>GAME <span>OVER</span></h1>
+            <p>FINAL SCORE &nbsp;<b id="finalScore">0</b><br>R 키 또는 버튼으로 재시작</p>
+            <button class="btn" id="restartBtn">RESTART</button>
+        </div>
     </div>
 
-    <div id="msg"></div>
-
-    <div class="screen" id="startScreen">
-      <h1>LAST <span>CORRIDOR</span></h1>
-      <p>
-        A/D · W/S 또는 방향키: 이동 | 마우스 왼쪽(누르고 있기): 사격<br>
-        R: 재장전 | SHIFT: 구르기(무적) | ESC: 일시정지<br>
-        피격 시 DODGE 게이지가 자동 회피로 소모됩니다. HP는 회복되지 않습니다.
-      </p>
-      <button class="btn" id="startBtn">GAME START</button>
-    </div>
-
-    <div class="screen hidden" id="pauseScreen">
-      <h1>PAUSED</h1>
-      <button class="btn" id="resumeBtn">RESUME</button>
-      <button class="btn" id="pauseRestartBtn">RESTART</button>
-    </div>
-
-    <div class="screen hidden" id="overScreen">
-      <h1>GAME <span>OVER</span></h1>
-      <p>FINAL SCORE &nbsp;<b id="finalScore">0</b><br>R 키 또는 버튼으로 재시작</p>
-      <button class="btn" id="restartBtn">RESTART</button>
-    </div>
-  </div>
-
-  <script src="./js/script.js"></script>
+    <!-- JavaScript 스크립트 연결 -->
+    <script src="js/script.js"></script>
 </body>
 </html>
